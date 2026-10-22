@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WearWise</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<header>
+  <div class="brand"><span class="logo">✦</span><div><small>WearWise</small><h1>My Wardrobe</h1></div></div>
+  <button class="btn" id="addTop" hidden>+ Add Item</button>
+</header>
+
+<main>
+
+
+  <section class="card" id="setup" hidden>
+    <p class="eyebrow">A little style, just for you</p>
+    <h2>Let’s make this closet yours.</h2>
+    <p>Start with your name. Your wardrobe and outfit picks will stay saved in this browser on this device.</p>
+    <input id="nameInput" placeholder="Your name">
+    <div class="center"><button class="btn" id="nameBtn">Open my wardrobe</button></div>
+    <p class="status" id="setupStatus"></p>
+  </section>
+
+  
+
+  <div id="app" hidden>
+    
+    <section class="card hero">
+      <p class="eyebrow">Your personal style space</p>
+      <h2 id="welcome"></h2>
+      <p>A little more room for the pieces you love, and an easy spark of inspiration when you need it.</p>
+    </section>
+
+    
+    <div class="tabs">
+      <button class="btn ghost active" data-tab="wardrobe">My Wardrobe</button>
+      <button class="btn ghost" data-tab="ootd">Choose OOTD for me</button>
+    </div>
+
+    
+    <section class="card" id="addForm" hidden style="padding:28px 32px">
+      <h3 style="font-size:22px;margin-bottom:10px">Add a piece to your wardrobe</h3>
+      <p style="font-size:15px">Choose a photo, pick a category, then add any extra tags like colours.</p>
+      <input id="addName" placeholder="Item name (optional)">
+      <select id="addCategory"></select>
+      <input id="addTags" placeholder="Extra tags, separated by commas (e.g. black, linen, summer)">
+      <div class="file">Choose a clothing photo<br><input type="file" id="addPhoto" accept="image/*" style="border:0;background:none;width:auto;margin:6px 0 0"></div>
+      <p class="status" id="photoStatus"></p>
+      <div class="row" style="margin-top:12px"><button class="btn" id="saveItem">Save piece</button><button class="btn ghost" id="cancelItem">Cancel</button></div>
+    </section>
+
+    
+    <div id="tab-wardrobe">
+      <div class="section-title"><h2>Your pieces</h2><span class="status" id="count"></span></div>
+      <input id="search" placeholder="Search by name, category, or tag">
+      <section class="card" id="empty" hidden style="padding:24px 28px">
+        <h3 style="font-size:22px;margin-bottom:12px">Your wardrobe is ready for its first piece.</h3>
+        <p style="font-size:15px">Add a photo and a few tags. You can change the details whenever you like.</p>
+        <div class="center"><button class="btn" id="addFirst">Add your first piece</button></div>
+      </section>
+      <div class="grid" id="grid"></div>
+    </div>
+
+    
+    <div id="tab-ootd" hidden>
+      <section class="card" style="padding:28px 32px">
+        <p class="eyebrow">A little OOTD magic</p>
+        <h2 style="font-size:28px">Let your closet surprise you.</h2>
+        <p style="font-size:15px">We’ll draw one piece for each slot. The bottom slot can be pants or a dress. Pick a color or tag to narrow the draw, and lock a slot to keep its piece.</p>
+        <div class="color-row"><label for="colorSel">Color or tag (optional)</label><select id="colorSel"></select></div>
+        <div class="center"><button class="btn" id="spin">✦ Spin my look</button></div>
+        <p class="status" id="outfitStatus"></p>
+      </section>
+
+      
+      <div class="slots" id="slots"></div>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

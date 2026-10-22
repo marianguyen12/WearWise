@@ -1,0 +1,75 @@
+/* Colours: change the pink theme here */
+:root { --pink:#d6459b; --pink2:#e87cb8; --soft:#fdeaf4; --line:#f0c4dc; --ink:#5a2d4a; --muted:#8a6a7d; }
+
+/* Page basics: background (bow pattern), fonts */
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, sans-serif; color:var(--ink); min-height:100vh;
+  background: #fff0f7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg fill='none' stroke='%23f3d3e5' stroke-width='3'%3E%3Cpath d='M100 90C70 70 45 80 45 100s25 30 55 10zM100 90c30-20 55-10 55 10s-25 30-55 10z'/%3E%3Cpath d='M100 105l-18 40M100 105l18 40'/%3E%3C/g%3E%3C/svg%3E"); }
+h1,h2,h3,.serif { font-family: Georgia, serif; font-weight:400; margin:0; }
+
+/* Top bar */
+header { display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background:#fff; border-bottom:1px solid var(--line); }
+.brand small { display:block; font-size:10px; letter-spacing:2px; font-weight:700; color:var(--muted); }
+.brand h1 { font-style:italic; font-size:26px; }
+.logo { display:inline-grid; place-items:center; width:42px; height:42px; border-radius:50%; background:var(--soft); color:var(--pink); border:1px solid var(--line); margin-right:12px; }
+.brand { display:flex; align-items:center; }
+
+/* One font for all buttons and form fields (they don't inherit it by default) */
+button, input, select { font-family: system-ui, sans-serif; }
+button { font-size:14px; font-weight:700; }
+
+/* Buttons: main pink button, outline (ghost) and small card buttons */
+.btn { border:0; border-radius:999px; padding:12px 22px; font-weight:700; color:#fff; cursor:pointer;
+  background:linear-gradient(135deg,var(--pink2),var(--pink)); box-shadow:0 6px 14px #d6459b40; }
+.btn.ghost { background:#fff; color:var(--ink); border:1px solid var(--line); box-shadow:none; }
+.btn.small { padding:7px 16px; background:#fff; color:#b02a7c; border:1px solid var(--line); box-shadow:none; }
+.btn.small.primary { background:linear-gradient(135deg,var(--pink2),var(--pink)); color:#fff; border:0; }
+
+/* Layout and cards (setup, welcome, forms) */
+main { max-width:1000px; margin:0 auto; padding:30px 20px 60px; }
+.card { background:#fffafc; border:1px dashed var(--pink2); border-radius:28px; padding:36px 44px; margin-bottom:20px; }
+.eyebrow { font-size:12px; font-weight:700; color:var(--pink); text-transform:uppercase; margin:0 0 14px; }
+.card h2 { font-size:40px; margin-bottom:16px; }
+.card p { color:var(--muted); font-size:17px; line-height:1.6; margin:0 0 18px; }
+
+/* Text boxes, dropdowns and small status messages */
+input, select { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:14px; font:inherit; font-size:14px; background:#fff; color:var(--ink); margin-bottom:8px; }
+.status { font-style:italic; font-size:13px; color:#b8a3b0; min-height:18px; margin:10px 0 0; }
+.center { text-align:center; }
+#setup { max-width:640px; margin:60px auto; }
+
+/* Tabs */
+.tabs { display:flex; gap:8px; margin-bottom:18px; }
+.tabs .btn { padding:9px 18px; }
+.tabs .active { background:linear-gradient(135deg,var(--pink2),var(--pink)); color:#fff; border:0; }
+.hero h2 { font-style:italic; font-size:34px; }
+
+/* Wardrobe grid: each clothing card, tag chips and edit form */
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; }
+.item { background:#fff; border:1px solid var(--line); border-radius:20px; padding:14px; }
+.item img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; background:#eee; display:block; }
+.item h3 { font-size:17px; margin:12px 0 0; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0; min-height:22px; }
+.chip { background:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 12px; font-size:12px; }
+.row { display:flex; gap:8px; }
+.editor { background:#fff7fb; border:1px solid var(--line); border-radius:14px; padding:10px; margin-top:12px; }
+
+.section-title { display:flex; align-items:baseline; gap:10px; margin-bottom:12px; }
+.section-title h2 { font-size:22px; }
+.file { border:1px dashed var(--pink2); border-radius:14px; padding:20px; text-align:center; background:#fff7fb; margin-bottom:8px; font-size:14px; }
+
+/* OOTD color/tag picker */
+.color-row { max-width:320px; margin-bottom:16px; }
+.color-row label { display:block; font-size:12px; font-weight:700; color:var(--muted); margin-bottom:6px; }
+
+/* OOTD slots: label + lock checkbox above each outfit piece */
+.slots { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; }
+.slot-head { display:flex; justify-content:space-between; align-items:center; margin:0 4px 8px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); }
+.slot-head label { display:flex; align-items:center; gap:6px; cursor:pointer; text-transform:none; letter-spacing:0; }
+.slot-head input { width:auto; margin:0; }
+
+/* Makes the hidden attribute always win */
+[hidden] { display:none !important; }
+
+/* Phone screens: stack things vertically */
+@media (max-width:600px) { .card { padding:24px; } .slots { grid-template-columns:1fr; } header { padding:12px 16px; } }
